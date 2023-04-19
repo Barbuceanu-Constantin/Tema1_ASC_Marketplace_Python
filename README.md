@@ -1,9 +1,9 @@
 Bărbuceanu Constantin 332 CB
 Tema1 ASC - Python Marketplace
 
-============
+=============
 # Organizare
-============
+=============
 
 Tema își propune implementarea unui marketplace care să funcționeze conform paradigmei Multi Producer Multi Consumer. Astfel, scheletul constă din 4 fișiere .py (marketplace.py, consumer.py, producer.py, product.py). Fisierul product.py conține definiția a 2 clase cu identificatorul dataclass, Coffee si Tea.
 
@@ -27,7 +27,7 @@ Pe lângă valorile variabilelor primite din fișierele de input, clasa Marketpl
 
         return self.cart_id
 
-5. producer_id_lock : Un mutex pe zona în care se creeaza un id nou de producător, prin incrementare.
+5. producer_id_lock : Un mutex pe zona în care se creează un id nou de producător, prin incrementare.
         
         with self.producer_id_lock:
             self.producer_id = self.producer_id + 1
@@ -64,9 +64,9 @@ Consider că tema este una utilă pentru familiarizarea cu multithreading-ul în
 
 Cred ca alegerea de a folosi dicționare acolo unde se poate aduce un boost de eficiență implementării, acestea fiind structuri de tip hashable. Dicționarele reprezintă practic cea mai rapida metodă din Python de a căuta în seturi de date mari cu multe entry-uri.
 
-==============
+===============
 # Implementare
-==============
+===============
 
 În rezolvarea temei am implementat întregul enunț. Mai exact am implementat toată partea de funcționalitate (80p), fapt vizibil prin trecerea tuturor testelor.
 
@@ -75,7 +75,7 @@ De asemenea, am creat și clasa de unitteste ASCMarketplace implementată în ma
 De asemenea am implementat și funcționalitatea de logging. Am folosit RotatingFileHanler si conversia la gmtime. Am setat numărul maxim de copii istorice la 10 și dimensiunea maximă la 20 * 1024 bytes. De asemenea pentru afișare am folosit nivelul info.
 
 Dificultăți întâmpinate:
-========================
+=========================
 
 O dificultate întâmpinată a fost înțelegerea faptului ca Producerii au un regim de lucru continuu, execuția lor fiind oprită forțat la terminarea tuturor celorlalte threaduri ale programului. Mi-am dat seama de acest lucru când am observat în test.py că la creare au parametrul daemon = True.
 
@@ -97,13 +97,13 @@ Singurele 3 warninguri de linting care pot să apară sunt:
 În toate 3 cazurile nu am găsit o soluție care să nu afecteze funcționalitatea programului. Punctajul global dat de pylint rulat pe tot folderul este 9.96, iar în particular pe fiecare fișier: 9.88 (markeplace.py), 9.68 (consumer.py), 10, 10.
 
 Lucruri interesante descoperite:
-================================
+=================================
 
 Mi s-a părut interesant să implementez funcționalitățile de logging și de unittesting.
 
-===================
+====================
 # Resurse utilizate
-===================
+====================
 https://stackoverflow.com/questions/70556519/log-files-get-reset-on-the-restart-of-the-application-instead-of-appending-the-n
 https://stackoverflow.com/questions/12139648/python-logging-specifying-converter-attribute-of-a-log-formatter-in-config-file
 https://stackoverflow.com/questions/25897335/why-doesnt-print-output-show-up-immediately-in-the-terminal-when-there-is-no-ne
